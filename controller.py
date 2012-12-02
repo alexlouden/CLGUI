@@ -19,7 +19,7 @@ class Controller(object):
     def run(self, text):
 
         # Run command
-        pipe = subprocess.Popen(text.split(),
+        pipe = subprocess.Popen(str(text).split(' '),
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             shell=True)
@@ -36,8 +36,10 @@ class Controller(object):
         return "\n".join(string)
 
 if __name__ == "__main__":
-    # If this script is run seperately, just print 'dir'
+    # If this script is run seperately
     if os.name == "posix":
+        # On OSX run ls
         print Controller().run('ls')
     else:
+        # On Windows run dir
         print Controller().run('dir')

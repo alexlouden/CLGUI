@@ -60,9 +60,9 @@ class MainFrame(wx.Frame):
         # Check to see if enter was pressed
         if event.GetKeyCode() == 13:
             # Run controller
-            self.run()
+            self.run(self.control.GetValue())
             # Clear control
-            self.control.SetLabel('')
+            self.control.SetValue('')
             return
 
         # Check to see if ? was pressed
@@ -78,9 +78,10 @@ class MainFrame(wx.Frame):
         """Handle text changed events for self.control"""
         pass
 
-    def run(self):
+    def run(self, text):
         """Run controller, display result"""
-        result = self.controller.run(self.control.GetLabel())
+        print "label: ", text
+        result = self.controller.run(text)
         self.log(result)
 
     def show_help(self):
