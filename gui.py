@@ -80,7 +80,6 @@ class MainFrame(wx.Frame):
 
     def run(self, text):
         """Run controller, display result"""
-        print "label: ", text
         result = self.controller.run(text)
         self.log(result)
 
