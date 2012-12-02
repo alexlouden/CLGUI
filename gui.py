@@ -92,6 +92,7 @@ class MainFrame(wx.Frame):
         self.display.AppendText(text + '\n')
 
 def main():
+    """Main function - runs wx, creates frame, then loops"""
     app = wx.App(False)
     controller = Controller()
     frame = MainFrame(controller)
