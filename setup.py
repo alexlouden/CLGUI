@@ -9,7 +9,14 @@ from setuptools import setup
 
 APP = ['gui.py']
 DATA_FILES = []
-OPTIONS = {'argv_emulation': True}
+OPTIONS = {
+	'argv_emulation': True, 
+	'packages': 'wx', 
+	'plist': {
+		'CFBundleName': 'Commandline GUI Template'
+	}
+
+}
 
 setup(
     app=APP,
