@@ -10,6 +10,7 @@
 #-------------------------------------------------------------------------------
 
 import subprocess
+import os
 
 class Controller(object):
     def __init__(self):
@@ -36,4 +37,7 @@ class Controller(object):
 
 if __name__ == "__main__":
     # If this script is run seperately, just print 'dir'
-    print Controller().run('dir')
+    if os.name == "posix":
+        print Controller().run('ls')
+    else:
+        print Controller().run('dir')
